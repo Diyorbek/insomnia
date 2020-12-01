@@ -28,6 +28,7 @@ Padded.displayName = '...';
 const sizes = {
   Default: 'default',
   Small: 'small',
+  Medium: 'medium',
 };
 
 const variants = {
@@ -88,7 +89,7 @@ export const withIcon = () => (
 
 export const reference = () => (
   <React.Fragment>
-    {['default', 'small'].map(s => (
+    {['medium', 'default', 'small'].map(s => (
       <Padded>
         <h2>
           <code>size={s}</code>

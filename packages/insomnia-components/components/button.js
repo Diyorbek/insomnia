@@ -1,12 +1,12 @@
 // @flow
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 type Props = {
   onClick?: (e: SyntheticEvent<HTMLButtonElement>) => any,
   bg?: 'default' | 'success' | 'notice' | 'warning' | 'danger' | 'surprise' | 'info',
   variant?: 'outlined' | 'contained' | 'text',
-  size?: 'default' | 'small',
+  size?: 'default' | 'small' | 'medium',
 };
 
 const StyledButton: React.ComponentType<Props> = styled.button`
@@ -22,13 +22,19 @@ const StyledButton: React.ComponentType<Props> = styled.button`
   ${({ size }) => {
     switch (size) {
       case 'small':
-        return `
+        return css`
           padding: 0 calc(var(--padding-md) * 0.8);
           height: calc(var(--line-height-xs) * 0.8);
           font-size: var(--font-size-sm);
         `;
+      case 'medium':
+        return css`
+          padding: 0 var(--padding-md);
+          height: calc(var(--line-height-md) * 0.8);
+          font-size: var(--font-size-md);
+        `;
       default:
-        return `
+        return css`
           padding: 0 var(--padding-md);
           height: var(--line-height-xs);
         `;
